@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import SignUpForm from './onboarding-components/SignUpForm';
-import LogInForm from './onboarding-components/LogInForm';
-import Title from './onboarding-components/Title';
-import Navigation from './onboarding-components/Navigation';
+import SignUpForm from './components/onboarding/SignUpForm';
+import LogInForm from './components/onboarding/LogInForm';
+import Title from './components/onboarding/Title';
+import Navigation from './components/onboarding/Navigation';
 import {Route} from 'react-router-dom';
 
 function App() {
