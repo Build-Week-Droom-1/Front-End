@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import axios from "axios";
 
 const StyledForm = styled.form`
   display: flex;
@@ -29,10 +30,22 @@ const StyledSubmit = styled.input`
   border-radius: 3px;
 `;
 
-export default function LogInForm() {
+export default function LogInForm(props) {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    console.log(data);
+    axios
+      .post("", data) //add api endpoint
+      .then(response => {
+        console.log("logged in", response.data);
+        localStorage.setItem("token", response.data.token); //retreiving token from api
+        props.history.push(""); // add path to dashboard
+      })
+      .catch(err => {
+        console.log("login error", err);
+      });
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -43,7 +56,7 @@ export default function LogInForm() {
         ref={register({ required: true, pattern: /^\S+@\S+$/i })}
       />
       {errors.email && "Email is required"}
-      
+
       <StyledInput
         type="password"
         placeholder="Password"
