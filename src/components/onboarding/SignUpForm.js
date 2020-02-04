@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import axios from "axios";
 
 const StyledForm = styled.form`
   display: flex;
@@ -39,8 +40,27 @@ const StyledRadioDiv = styled.div`
 
 export default function SignUpForm() {
   const { register, handleSubmit, errors, watch } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
+  const onSubmit = data => {
+    console.log(data);
+    if (data.role === "Company")
+      axios
+        .post(``, data)
+        .then(res => {
+          console.log("success", res);
+          // setStatus(res.data);
+          //reset form?
+        })
+        .catch(err => console.log(err.response));
+    else
+      axios
+        .post(``, data)
+        .then(res => {
+          console.log("success", res);
+          // setStatus(res.data);
+          //reset form?
+        })
+        .catch(err => console.log(err.response));
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
