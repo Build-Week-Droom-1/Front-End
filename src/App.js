@@ -6,6 +6,7 @@ import Title from './components/onboarding/Title';
 import Navigation from './components/onboarding/Navigation';
 import JobSeekerInfo from './components/onboarding/JobSeekerInfo';
 import CompanyInfo from './components/onboarding/CompanyInfo';
+import PostJob from './components/onboarding/PostJob';
 import {Route} from 'react-router-dom';
 
 function App() {
