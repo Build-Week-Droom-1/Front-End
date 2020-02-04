@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
-import Title from './components/onboarding/Title';
+import '../../App.css';
+import Title from '../onboarding/Title';
 import CompanyProfile from './CompanyProfile';
-import CompanyNav from './components/dashboard/CompanyNav';
+import CompanyNav from './CompanyNav';
 
 function CompanyDashboard() {
   return (
