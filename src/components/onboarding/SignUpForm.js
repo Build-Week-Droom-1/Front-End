@@ -45,7 +45,10 @@ export default function SignUpForm(props) {
     console.log(data.role);
     if (data.role === "Company")
       axios
-        .post("https://reqres.in/api/register", data)
+        .post(
+          "https://droom-project-lambda.herokuapp.com/api/auth/register",
+          data
+        )
         .then(res => {
           console.log("success", res);
           // setStatus(res.data);
@@ -55,7 +58,10 @@ export default function SignUpForm(props) {
         .catch(err => console.log(err.response));
     else
       axios
-        .post("https://reqres.in/api/register/job", data)
+        .post(
+          "https://droom-project-lambda.herokuapp.com/api/auth/register",
+          data
+        )
         .then(res => {
           console.log("success", res);
           // setStatus(res.data);
@@ -76,15 +82,14 @@ export default function SignUpForm(props) {
       {errors.email && "Email is required"}
 
       <StyledInput
-        type="tel"
-        placeholder="Mobile number"
-        name="phone"
+        type="text"
+        placeholder="username"
+        name="username"
         ref={register({
-          required: true,
-          pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i
+          required: true
         })}
       />
-      {errors.phone && "Mobile number is required"}
+      {errors.username && "Username is required"}
 
       <StyledInput
         type="password"
