@@ -6,20 +6,44 @@ import Title from "./components/onboarding/Title";
 import Navigation from "./components/onboarding/Navigation";
 import JobSeekerInfo from "./components/onboarding/JobSeekerInfo";
 import CompanyInfo from "./components/onboarding/CompanyInfo";
+
+import CompanyDashboard from "./components/dashboard/CompanyDashboard";
+import JobSeekerDashboard from "./components/dashboard/JobSeekerDashboard";
+
+import PostJob from "./components/onboarding/PostJob";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./components/onboarding/privateRoute";
+
 function App() {
   return (
     <Router>
       <div className="App">
-        <Title />
-        <Navigation />
-        <Route exact path="/" component={SignUpForm} />
-        <Route exact path="/signup" component={SignUpForm} />
-        <Route path="/signup/job-seeker" component={JobSeekerInfo} />
-
-        <Route path="/signup/company" component={CompanyInfo} />
-        <Route path="/login" component={LogInForm} />
+        <Route exact path="/">
+          <Title />
+          <Navigation />
+          <SignUpForm />
+        </Route>
+        <Route exact path="/signup">
+          <Title />
+          <Navigation />
+          <SignUpForm />
+        </Route>
+        <Route path="/signup/job-seeker">
+          <Title />
+          <JobSeekerInfo />
+        </Route>
+        <Route path="/signup/company">
+          <Title />
+          <CompanyInfo />
+        </Route>
+        <Route path="/login">
+          <Title />
+          <Navigation />
+          <LogInForm />
+        </Route>
+        <Route path="/company-profile" component={CompanyDashboard} />
+        <Route path="/jobseeker-profile" component={JobSeekerDashboard} />
       </div>
     </Router>
   );
