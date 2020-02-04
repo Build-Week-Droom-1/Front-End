@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import Title from '../onboarding/Title';
+import DashboardTitle from './DashboardTitle';
 import CompanyProfile from './CompanyProfile';
 import CompanyNav from './CompanyNav';
 
@@ -9,7 +9,7 @@ function CompanyDashboard() {
     <div className="App">
         {/* styled div to create a card wrapper */}
         <div>
-            <Title />
+            <DashboardTitle />
             <CompanyProfile />
             <CompanyNav />
         </div>

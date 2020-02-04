@@ -6,8 +6,10 @@ import Title from './components/onboarding/Title';
 import Navigation from './components/onboarding/Navigation';
 import JobSeekerInfo from './components/onboarding/JobSeekerInfo';
 import CompanyInfo from './components/onboarding/CompanyInfo';
-import {Route} from 'react-router-dom';
 import CompanyDashboard from './components/dashboard/CompanyDashboard';
+import JobSeekerDashboard from './components/dashboard/JobSeekerDashboard';
+import {Route} from 'react-router-dom';
+
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
         <LogInForm />
       </Route>
       <Route path="/company-profile" component={CompanyDashboard} />
+      <Route path="/jobseeker-profile" component={JobSeekerDashboard} />
     </div>
   );
 }
