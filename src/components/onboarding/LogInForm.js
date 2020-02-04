@@ -33,14 +33,14 @@ const StyledSubmit = styled.input`
 export default function LogInForm(props) {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data, e) => {
-    e.preventDefault();
+    e.preventDefault(); // maybe not necessary?
     console.log(data);
     axios
-      .post("", data) //add api endpoint
+      .post("https://reqres.in/api/login", data) //add api endpoint
       .then(response => {
         console.log("logged in", response.data);
         localStorage.setItem("token", response.data.token); //retreiving token from api
-        props.history.push(""); // add path to dashboard
+        props.history.push("/dashboard"); // add path to dashboard
       })
       .catch(err => {
         console.log("login error", err);
@@ -60,7 +60,7 @@ export default function LogInForm(props) {
       <StyledInput
         type="password"
         placeholder="Password"
-        name="password1"
+        name="password"
         ref={register({ required: true })}
       />
       <StyledSubmit type="submit" value="Log In" />

@@ -38,26 +38,29 @@ const StyledRadioDiv = styled.div`
   margin: 10px 0;
 `;
 
-export default function SignUpForm() {
+export default function SignUpForm(props) {
   const { register, handleSubmit, errors, watch } = useForm();
   const onSubmit = data => {
     console.log(data);
+    console.log(data.role);
     if (data.role === "Company")
       axios
-        .post(``, data)
+        .post("https://reqres.in/api/register", data)
         .then(res => {
           console.log("success", res);
           // setStatus(res.data);
           //reset form?
+          props.history.push("/register/company");
         })
         .catch(err => console.log(err.response));
     else
       axios
-        .post(``, data)
+        .post("https://reqres.in/api/register/job", data)
         .then(res => {
           console.log("success", res);
           // setStatus(res.data);
           //reset form?
+          props.history.push("/register/job-seeker");
         })
         .catch(err => console.log(err.response));
   };
@@ -86,7 +89,7 @@ export default function SignUpForm() {
       <StyledInput
         type="password"
         placeholder="Password"
-        name="password1"
+        name="password"
         ref={register({ required: true })}
       />
 
@@ -96,7 +99,7 @@ export default function SignUpForm() {
         name="password2"
         ref={register({
           validate: value => {
-            return value === watch("password1");
+            return value === watch("password");
           }
         })}
       />

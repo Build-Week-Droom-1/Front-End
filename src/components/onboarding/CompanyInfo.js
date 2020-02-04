@@ -1,6 +1,7 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
+import React from "react";
+import { useForm } from "react-hook-form";
+import styled from "styled-components";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const StyledForm = styled.form`
   display: flex;
@@ -36,20 +37,48 @@ const StyledTextArea = styled.input`
   border-radius: 3px;
 `;
 
-export default function CompanyInfo() {
+export default function CompanyInfo(props) {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
-  
+  const onSubmit = (data, e) => {
+    console.log(data);
+    e.preventDefault();
+    axiosWithAuth()
+      .post(`https://reqres.in/api/users`, data)
+      .then(res => {
+        console.log("success", res);
+        localStorage.setItem("token", res.data);
+        props.history.push("/dashboard");
+      })
+      .catch(err => console.log("error", err.response));
+  };
+
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput type="text" placeholder="name" name="name" ref={register({required: true, pattern: /^[\\p{L} .'-]+$/i})} />
+      <StyledInput
+        type="text"
+        placeholder="name"
+        name="name"
+        ref={register({ required: true })}
+      />
       {errors.name && "name is required"}
-      <StyledInput type="text" placeholder="location" name="location" ref={register({required: true, pattern: /^[\\p{L} .'-]+$/i})} />
+      <StyledInput
+        type="text"
+        placeholder="location"
+        name="location"
+        ref={register({ required: true })}
+      />
       {errors.location && "location is required"}
-      <StyledTextArea name="description" placeholder="company description" ref={register({required: true})} />
+      <StyledTextArea
+        name="description"
+        placeholder="company description"
+        ref={register({ required: true })}
+      />
       {errors.description && "description is required"}
-      <StyledTextArea name="mission" placeholder="mission statement" ref={register({required: true})} />
+      <StyledTextArea
+        name="mission"
+        placeholder="mission statement"
+        ref={register({ required: true })}
+      />
       {errors.mission && "mission is required"}
       <StyledSubmit type="submit" />
     </StyledForm>
