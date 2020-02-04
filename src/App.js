@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
+
 import SignUpForm from './components/onboarding/SignUpForm';
 import LogInForm from './components/onboarding/LogInForm';
 import Title from './components/onboarding/Title';
 import Navigation from './components/onboarding/Navigation';
 import JobSeekerInfo from './components/onboarding/JobSeekerInfo';
 import CompanyInfo from './components/onboarding/CompanyInfo';
-
 import CompanyDashboard from './components/dashboard/CompanyDashboard';
 import JobSeekerDashboard from './components/dashboard/JobSeekerDashboard';
-
 import PostJob from './components/onboarding/PostJob';
 
 import {Route} from 'react-router-dom';
@@ -22,7 +21,7 @@ function App() {
         <Title />
         <Navigation />
         <SignUpForm />
-      </Route>
+      </Route>      
       <Route exact path="/signup">
         <Title />
         <Navigation />
