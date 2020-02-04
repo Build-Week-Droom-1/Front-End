@@ -1,6 +1,7 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const StyledForm = styled.form`
   display: flex;
@@ -30,11 +31,11 @@ const StyledSubmit = styled.input`
 `;
 
 const StyledDropDown = styled.select`
-    width: 300px;
-    height: 25px;
-    margin: 5px 0;
-    border-radius: 3px;
-`
+  width: 300px;
+  height: 25px;
+  margin: 5px 0;
+  border-radius: 3px;
+`;
 
 const StyledTextArea = styled.input`
   width: 300px;
@@ -43,21 +44,48 @@ const StyledTextArea = styled.input`
   border-radius: 3px;
 `;
 
-export default function JobSeekerInfo() {
+export default function JobSeekerInfo(props) {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
-  
+  const onSubmit = (data, e) => {
+    console.log(data);
+    e.preventDefault();
+    axiosWithAuth()
+      .post(`https://reqres.in/api/register`, data)
+      .then(res => {
+        console.log("success", res);
+        localStorage.setItem("token", res.data);
+        props.history.push("/dashboard");
+      })
+      .catch(err => console.log("error", err.response));
+  };
+
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput type="text" placeholder="name" name="name" ref={register({required: true, pattern: /^[\\p{L} .'-]+$/i})} />
+      <StyledInput
+        type="text"
+        placeholder="name"
+        name="name"
+        ref={register({ required: true })}
+      />
       {errors.name && "Name is required"}
-      <StyledInput type="text" placeholder="location" name="location" ref={register({required: true, pattern: /^[\\p{L} .'-]+$/i})} />
+      <StyledInput
+        type="text"
+        placeholder="location"
+        name="location"
+        ref={register({ required: true })}
+      />
       {errors.location && "location is required"}
-      <StyledInput type="text" placeholder="occupation" name="occupation" ref={register({required: true, pattern: /^[\\p{L} .'-]+$/i})} />
+      <StyledInput
+        type="text"
+        placeholder="occupation"
+        name="occupation"
+        ref={register({ required: true })}
+      />
       {errors.occupation && "occupation is required"}
       <StyledDropDown name="education" ref={register({ required: true })}>
-        <option value="" selected disabled>Highest Education</option>
+        <option value="" selected disabled>
+          Highest Education
+        </option>
         <option value="High-school">High-school</option>
         <option value=" Associate's"> Associate's</option>
         <option value=" Bachelor's"> Bachelor's</option>
@@ -66,13 +94,25 @@ export default function JobSeekerInfo() {
         <option value=" Other "> Other </option>
       </StyledDropDown>
       {errors.education && "education is required"}
-      <StyledTextArea name="workExperience" placeholder="work experience" ref={register({required: true})} />
+      <StyledTextArea
+        name="workExperience"
+        placeholder="work experience"
+        ref={register({ required: true })}
+      />
       {errors.workExperience && "work experience is required"}
-      <StyledTextArea name="skills" placeholder="skills" ref={register({required: true})} />
+      <StyledTextArea
+        name="skills"
+        placeholder="skills"
+        ref={register({ required: true })}
+      />
       {errors.skills && "skills are required"}
-      <StyledTextArea name="interests" placeholder="interests" ref={register({required: true})} />
+      <StyledTextArea
+        name="interests"
+        placeholder="interests"
+        ref={register({ required: true })}
+      />
       {errors.interests && "interests are required"}
-    
+
       <StyledSubmit type="submit" />
     </StyledForm>
   );

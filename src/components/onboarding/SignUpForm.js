@@ -38,26 +38,35 @@ const StyledRadioDiv = styled.div`
   margin: 10px 0;
 `;
 
-export default function SignUpForm() {
+export default function SignUpForm(props) {
   const { register, handleSubmit, errors, watch } = useForm();
   const onSubmit = data => {
     console.log(data);
+    console.log(data.role);
     if (data.role === "Company")
       axios
-        .post(``, data)
+        .post(
+          "https://droom-project-lambda.herokuapp.com/api/auth/register",
+          data
+        )
         .then(res => {
           console.log("success", res);
           // setStatus(res.data);
           //reset form?
+          props.history.push("/register/company");
         })
         .catch(err => console.log(err.response));
     else
       axios
-        .post(``, data)
+        .post(
+          "https://droom-project-lambda.herokuapp.com/api/auth/register",
+          data
+        )
         .then(res => {
           console.log("success", res);
           // setStatus(res.data);
           //reset form?
+          props.history.push("/register/job-seeker");
         })
         .catch(err => console.log(err.response));
   };
@@ -73,20 +82,19 @@ export default function SignUpForm() {
       {errors.email && "Email is required"}
 
       <StyledInput
-        type="tel"
-        placeholder="Mobile number"
-        name="phone"
+        type="text"
+        placeholder="username"
+        name="username"
         ref={register({
-          required: true,
-          pattern: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/i
+          required: true
         })}
       />
-      {errors.phone && "Mobile number is required"}
+      {errors.username && "Username is required"}
 
       <StyledInput
         type="password"
         placeholder="Password"
-        name="password1"
+        name="password"
         ref={register({ required: true })}
       />
 
@@ -96,7 +104,7 @@ export default function SignUpForm() {
         name="password2"
         ref={register({
           validate: value => {
-            return value === watch("password1");
+            return value === watch("password");
           }
         })}
       />
