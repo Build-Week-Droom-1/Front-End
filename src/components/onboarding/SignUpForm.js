@@ -131,7 +131,6 @@ export default function SignUpForm(props) {
         </label>
       </StyledRadioDiv>
       {errors.role && "Choose a role"}
-
       <StyledSubmit type="submit" value="Sign Up" />
     </StyledForm>
   );

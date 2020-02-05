@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./App.css";
 import SignUpForm from "./components/onboarding/SignUpForm";
@@ -7,14 +6,11 @@ import Title from "./components/onboarding/Title";
 import Navigation from "./components/onboarding/Navigation";
 import JobSeekerInfo from "./components/onboarding/JobSeekerInfo";
 import CompanyInfo from "./components/onboarding/CompanyInfo";
-
 import CompanyDashboard from "./components/dashboard/CompanyDashboard";
 import JobSeekerDashboard from "./components/dashboard/JobSeekerDashboard";
-
 import PostJob from "./components/onboarding/PostJob";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import PrivateRoute from "./components/onboarding/privateRoute";
+// import PrivateRoute from "./components/onboarding/privateRoute";
 
 function App() {
   return (

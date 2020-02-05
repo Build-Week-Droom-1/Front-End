@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-
+import axios from "axios";
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -10,14 +10,12 @@ const StyledForm = styled.form`
   margin: 50px auto;
   border-radius: 3px;
 `;
-
 const StyledInput = styled.input`
   width: 500px;
   height: 25px;
   margin: 5px 0;
   border-radius: 3px;
 `;
-
 const StyledRadioDiv = styled.div`
   display: flex;
   justify-content: space-around;
@@ -25,14 +23,12 @@ const StyledRadioDiv = styled.div`
   color: #caa767;
   margin: 10px 0;
 `;
-
 const StyledTextArea = styled.input`
   width: 500px;
   height: 300px;
   margin: 5px 0;
   border-radius: 3px;
 `;
-
 const StyledSubmit = styled.input`
   padding: 0.5em;
   margin: 0.5em;
@@ -42,11 +38,18 @@ const StyledSubmit = styled.input`
   border: none;
   border-radius: 3px;
 `;
-
 export default function PostJob() {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
+  const onSubmit = data => {
+      console.log(data);
+      axios
+          .post("https://droombw.herokuapp.com/api/jobs", data)
+          .then(res => {
+              console.log("data for addform", res);
+              handleSubmit(res.data);
+          })
+          .catch(err => console.log(err.response));
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
