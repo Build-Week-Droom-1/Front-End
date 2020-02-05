@@ -50,7 +50,7 @@ const JobPosting = () => {
               <h1>Job Title: {item.title}</h1>
               <h3>Salary: {item.salary} </h3>
               <div>
-                <h3>Job Description</h3>
+                <h3>Job Description:</h3>
                 <p>{item.description}</p>
               </div>
               <img src={item.img_url} alt="job" width="100%"></img>
