@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import DashboardTitle from './DashboardTitle';
 import { useForm } from "react-hook-form";
-import { NavLink } from 'react-router-dom';
+// import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Card = styled.div`
   max-width: 60%;
@@ -69,8 +69,7 @@ const NavLinkContainer = styled.div`
     justify-content: space-between;
     align-items: center;
 `
-
-const StyledNavLink = styled(NavLink)`
+const StyledSubmit = styled.input`
     font-size: 1.05rem;
     color: #182d42;
     text-decoration: none;
@@ -81,6 +80,7 @@ const StyledNavLink = styled(NavLink)`
     border-radius: 10px;
     
     &:hover {
+        cursor: pointer;
         background-color: #caa767;
         box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
     }
@@ -144,7 +144,7 @@ const CompanyEdit = () => {
                     </DescriptionDiv>
                 </ProfileContainer>
                 <NavLinkContainer>
-                    <StyledNavLink to="SAVE PROFILE LINK">Save Profile</StyledNavLink>
+                    <StyledSubmit type="submit" />
                 </NavLinkContainer>
             </Card>
         </>
