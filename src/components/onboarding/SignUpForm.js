@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import axios from "axios";
+import Title from "./Title";
+import Navigation from "./Navigation";
 
 const StyledForm = styled.form`
   display: flex;
@@ -53,7 +55,7 @@ export default function SignUpForm(props) {
           console.log("success", res);
           // setStatus(res.data);
           //reset form?
-          props.history.push("/register/company");
+          props.history.push("/signup/company");
         })
         .catch(err => console.log(err.response));
     else
@@ -66,39 +68,42 @@ export default function SignUpForm(props) {
           console.log("success", res);
           // setStatus(res.data);
           //reset form?
-          props.history.push("/register/job-seeker");
+          props.history.push("/signup/job-seeker");
         })
-        .catch(err => console.log(err.response));
+        .catch(err => console.log("err", err));
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput
-        type="text"
-        placeholder="Email"
-        name="email"
-        ref={register({ required: true, pattern: /^\S+@\S+$/i })}
-      />
-      {errors.email && "Email is required"}
+    <div>
+      <Title />
+      <Navigation />
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledInput
+          type="text"
+          placeholder="Email"
+          name="email"
+          ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+        />
+        {errors.email && "Email is required"}
 
-      <StyledInput
-        type="text"
-        placeholder="username"
-        name="username"
-        ref={register({
-          required: true
-        })}
-      />
-      {errors.username && "Username is required"}
+        <StyledInput
+          type="text"
+          placeholder="username"
+          name="username"
+          ref={register({
+            required: true
+          })}
+        />
+        {errors.username && "Username is required"}
 
-      <StyledInput
-        type="password"
-        placeholder="Password"
-        name="password"
-        ref={register({ required: true })}
-      />
+        <StyledInput
+          type="password"
+          placeholder="Password"
+          name="password"
+          ref={register({ required: true })}
+        />
 
-      <StyledInput
+        {/* <StyledInput
         type="password"
         placeholder="Confirm password"
         name="password2"
@@ -108,31 +113,32 @@ export default function SignUpForm(props) {
           }
         })}
       />
-      {errors.password2 && "Passwords must match"}
+      {errors.password2 && "Passwords must match"} */}
 
-      <StyledRadioDiv>
-        <label>
-          <input
-            name="role"
-            type="radio"
-            value="Job Seeker"
-            ref={register({ required: true })}
-          />
-          Job Seeker
-        </label>
-        <label>
-          <input
-            name="role"
-            type="radio"
-            value="Company"
-            ref={register({ required: true })}
-          />
-          Company
-        </label>
-      </StyledRadioDiv>
-      {errors.role && "Choose a role"}
+        <StyledRadioDiv>
+          <label>
+            <input
+              name="role"
+              type="radio"
+              value="Job Seeker"
+              ref={register({ required: true })}
+            />
+            Job Seeker
+          </label>
+          <label>
+            <input
+              name="role"
+              type="radio"
+              value="Company"
+              ref={register({ required: true })}
+            />
+            Company
+          </label>
+        </StyledRadioDiv>
+        {errors.role && "Choose a role"}
 
-      <StyledSubmit type="submit" value="Sign Up" />
-    </StyledForm>
+        <StyledSubmit type="submit" value="Sign Up" />
+      </StyledForm>
+    </div>
   );
 }
