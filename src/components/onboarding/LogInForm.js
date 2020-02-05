@@ -54,20 +54,23 @@ export default function LogInForm(props) {
       <Title />
       <Navigation />
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <StyledInput
-          type="text"
-          placeholder="Email"
-          name="email"
-          ref={register({ required: true, pattern: /^\S+@\S+$/i })}
-        />
+        <label>
+          <StyledInput
+            type="text"
+            placeholder="Email"
+            name="email"
+            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+          />
+        </label>
         {errors.email && "Email is required"}
-
-        <StyledInput
-          type="password"
-          placeholder="Password"
-          name="password"
-          ref={register({ required: true })}
-        />
+        <label>
+          <StyledInput
+            type="password"
+            placeholder="Password"
+            name="password"
+            ref={register({ required: true })}
+          />
+        </label>
         <StyledSubmit type="submit" value="Log In" />
       </StyledForm>
     </div>
