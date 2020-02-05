@@ -2,19 +2,19 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Title from "./Title";
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  width: 50%;
   margin: 50px auto;
   border-radius: 3px;
 `;
 
 const StyledInput = styled.input`
-  width: 300px;
+  width: 400px;
   height: 25px;
   margin: 5px 0;
   border-radius: 3px;
@@ -31,17 +31,18 @@ const StyledSubmit = styled.input`
 `;
 
 const StyledDropDown = styled.select`
-  width: 300px;
+  width: 400px;
   height: 25px;
   margin: 5px 0;
   border-radius: 3px;
 `;
 
-const StyledTextArea = styled.input`
-  width: 300px;
+const StyledTextArea = styled.textarea`
+  width: 400px;
   height: 100px;
   margin: 5px 0;
   border-radius: 3px;
+  font-family: 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
 `;
 
 export default function JobSeekerInfo(props) {
@@ -60,60 +61,70 @@ export default function JobSeekerInfo(props) {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput
-        type="text"
-        placeholder="name"
-        name="name"
-        ref={register({ required: true })}
-      />
-      {errors.name && "Name is required"}
-      <StyledInput
-        type="text"
-        placeholder="location"
-        name="location"
-        ref={register({ required: true })}
-      />
-      {errors.location && "location is required"}
-      <StyledInput
-        type="text"
-        placeholder="occupation"
-        name="occupation"
-        ref={register({ required: true })}
-      />
-      {errors.occupation && "occupation is required"}
-      <StyledDropDown name="education" ref={register({ required: true })}>
-        <option value="" selected disabled>
-          Highest Education
-        </option>
-        <option value="High-school">High-school</option>
-        <option value=" Associate's"> Associate's</option>
-        <option value=" Bachelor's"> Bachelor's</option>
-        <option value=" Master's"> Master's</option>
-        <option value=" PhD"> PhD</option>
-        <option value=" Other "> Other </option>
-      </StyledDropDown>
-      {errors.education && "education is required"}
-      <StyledTextArea
-        name="workExperience"
-        placeholder="work experience"
-        ref={register({ required: true })}
-      />
-      {errors.workExperience && "work experience is required"}
-      <StyledTextArea
-        name="skills"
-        placeholder="skills"
-        ref={register({ required: true })}
-      />
-      {errors.skills && "skills are required"}
-      <StyledTextArea
-        name="interests"
-        placeholder="interests"
-        ref={register({ required: true })}
-      />
-      {errors.interests && "interests are required"}
+    <div>
+      <Title />
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <label>
+        <StyledInput
+          type="text"
+          placeholder="Full name"
+          name="name"
+          ref={register({ required: true })}
+        /></label>
+        {errors.name && "Name is required"}
+        <label>
+        <StyledInput
+          type="text"
+          placeholder="Location"
+          name="location"
+          ref={register({ required: true })}
+        /></label>
+        {errors.location && "location is required"}
+        <label>
+        <StyledInput
+          type="text"
+          placeholder="Occupation"
+          name="occupation"
+          ref={register({ required: true })}
+        /></label>
+        {errors.occupation && "occupation is required"}
+        <label>
+        <StyledDropDown name="education" ref={register({ required: true })}>
+          <option value="" selected disabled>
+            Highest Education
+          </option>
+          <option value="High-school">High-school</option>
+          <option value=" Associate's"> Associate's</option>
+          <option value=" Bachelor's"> Bachelor's</option>
+          <option value=" Master's"> Master's</option>
+          <option value=" PhD"> PhD</option>
+          <option value=" Other "> Other </option>
+        </StyledDropDown></label>
+        {errors.education && "education is required"}
+        <label>
+        <StyledTextArea
+          name="workExperience"
+          placeholder="Add work experience"
+          ref={register({ required: true })}
+        /></label>
+        {errors.workExperience && "work experience is required"}
+        <label>
+        <StyledTextArea
+          name="skills"
+          placeholder="Add skills"
+          ref={register({ required: true })}
+        /></label>
+        {errors.skills && "skills are required"}
+        <label>
+        <StyledTextArea
+          name="interests"
+          placeholder="Add interests"
+          ref={register({ required: true })}
+        /></label>
+        {errors.interests && "interests are required"}
 
-      <StyledSubmit type="submit" />
-    </StyledForm>
+        <StyledSubmit type="submit" />
+      </StyledForm>
+    </div>
   );
 }

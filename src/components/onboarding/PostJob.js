@@ -10,6 +10,11 @@ const StyledForm = styled.form`
   margin: 50px auto;
   border-radius: 3px;
 `;
+
+const StyledHeading = styled.h2`
+  color: #caa767;
+  font-size: 20px;
+`;
 const StyledInput = styled.input`
   width: 500px;
   height: 25px;
@@ -22,12 +27,15 @@ const StyledRadioDiv = styled.div`
   width: 500px;
   color: #caa767;
   margin: 10px 0;
+  font-size: 15px;
 `;
 const StyledTextArea = styled.input`
+const StyledTextArea = styled.textarea`
   width: 500px;
   height: 300px;
   margin: 5px 0;
   border-radius: 3px;
+  font-family: 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
 `;
 const StyledSubmit = styled.input`
   padding: 0.5em;
@@ -52,33 +60,42 @@ export default function PostJob() {
   };
 
   return (
+    <div>
+      <StyledHeading>Create New Job</StyledHeading>
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor='jobTitle'></label>
       <StyledInput
         type="text"
-        placeholder="job title"
+        placeholder="Job title"
         name="jobTitle"
+        id="jobTitle"
         ref={register({ required: true })}
       />
       {errors.jobTitle && "job title is required"}
+      <label htmlFor='salary'></label>
       <StyledInput
         type="text"
-        placeholder="salary"
+        placeholder="Salary"
         name="salary"
+        id="salary"
         ref={register}
       />
+       <label htmlFor='location'></label>
       <StyledInput
         type="text"
-        placeholder="location"
+        placeholder="Location"
         name="location"
+        id="location"
         ref={register({ required: true })}
       />
       {errors.location && "location is required"}
-
+      <label htmlFor='relocation'></label>
       <StyledRadioDiv>
         Is relocation assistance available for this position?
         <label>
           <input
             name="relocation"
+            id='relocation'
             type="radio"
             value="Yes"
             ref={register({ required: true })}
@@ -88,6 +105,7 @@ export default function PostJob() {
         <label>
           <input
             name="relocation"
+            id="relocation"
             type="radio"
             value="No"
             ref={register({ required: true })}
@@ -96,20 +114,24 @@ export default function PostJob() {
         </label>
       </StyledRadioDiv>
       {errors.relocation && "relocation field is required"}
-
+      <label htmlFor='description'></label>
       <StyledTextArea
         name="description"
-        placeholder="job description"
+        id="description"
+        placeholder="Add job description here"
         ref={register({ required: true })}
       />
       {errors.description && "description is required"}
+      <label htmlFor='requirements'></label>
       <StyledTextArea
         name="requirements"
-        placeholder="position requirements"
+        id="requirements"
+        placeholder="Add position requirements here"
         ref={register({ required: true })}
       />
       {errors.requirements && "position requirements are required"}
-      <StyledSubmit type="submit" />
+      <StyledSubmit type="submit" value="Create job" />
     </StyledForm>
+    </div>
   );
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import axios from "axios";
+import Title from "./Title";
+import Navigation from "./Navigation";
 
 const StyledForm = styled.form`
   display: flex;
@@ -36,11 +38,11 @@ export default function LogInForm(props) {
     e.preventDefault(); // maybe not necessary?
     console.log(data);
     axios
-      .post("https://reqres.in/api/login", data) //add api endpoint
+      .post("https://droom-project-lambda.herokuapp.com/api/auth/login", data)
       .then(response => {
         console.log("logged in", response.data);
         localStorage.setItem("token", response.data.token); //retreiving token from api
-        props.history.push("/dashboard"); // add path to dashboard
+        props.history.push("/job-seeker/profile"); // need to make it go to company if company
       })
       .catch(err => {
         console.log("login error", err);
@@ -48,22 +50,29 @@ export default function LogInForm(props) {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput
-        type="text"
-        placeholder="Email"
-        name="email"
-        ref={register({ required: true, pattern: /^\S+@\S+$/i })}
-      />
-      {errors.email && "Email is required"}
-
-      <StyledInput
-        type="password"
-        placeholder="Password"
-        name="password"
-        ref={register({ required: true })}
-      />
-      <StyledSubmit type="submit" value="Log In" />
-    </StyledForm>
+    <div>
+      <Title />
+      <Navigation />
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <label>
+          <StyledInput
+            type="text"
+            placeholder="Email"
+            name="email"
+            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+          />
+        </label>
+        {errors.email && "Email is required"}
+        <label>
+          <StyledInput
+            type="password"
+            placeholder="Password"
+            name="password"
+            ref={register({ required: true })}
+          />
+        </label>
+        <StyledSubmit type="submit" value="Log In" />
+      </StyledForm>
+    </div>
   );
 }
