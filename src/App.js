@@ -11,7 +11,7 @@ import JobSeekerDashboard from "./components/dashboard/JobSeekerDashboard";
 import PostJob from "./components/onboarding/PostJob";
 import JobPosting from "./components/jobposting/JobPosting";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import PrivateRoute from "./components/onboarding/privateRoute";
+// import PrivateRoute from "./components/onboarding/privateRoute";
 
 
 function App() {
