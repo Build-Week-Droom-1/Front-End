@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import DashboardTitle from './DashboardTitle';
 import CompanyNav from './CompanyNav';
+import { useForm } from "react-hook-form";
 
 const Card = styled.div`
   max-width: 60%;
@@ -49,13 +50,15 @@ const DescriptionDiv = styled.div`
     }
 `
 
-const CompanyProfile = () => {
+const CompanyEdit = () => {
     return (
         <>
             <Card>
                 <DashboardTitle />
                 <ProfileContainer>
-                    <ProfileName><span>Name Icon</span>{' '}Company Name Here</ProfileName>
+                    <ProfileName><span>Name Icon</span>{' '}Company Name Here
+                    
+                    </ProfileName>
                     <ProfileLocation><span>Location Icon</span>{' '}Location Here</ProfileLocation>
                     <DescriptionDiv>
                         <h3>Description</h3>
@@ -73,4 +76,4 @@ const CompanyProfile = () => {
     );
 }
 
-export default CompanyProfile;
+export default CompanyEdit;
