@@ -9,13 +9,12 @@ const StyledForm = styled.form`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  width: 50%;
   margin: 50px auto;
   border-radius: 3px;
 `;
 
 const StyledInput = styled.input`
-  width: 300px;
+  width: 400px;
   height: 25px;
   margin: 5px 0;
   border-radius: 3px;
@@ -31,11 +30,12 @@ const StyledSubmit = styled.input`
   border-radius: 3px;
 `;
 
-const StyledTextArea = styled.input`
-  width: 300px;
+const StyledTextArea = styled.textarea`
+  width: 400px;
   height: 100px;
   margin: 5px 0;
   border-radius: 3px;
+  font-family: 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
 `;
 
 export default function CompanyInfo(props) {
@@ -57,31 +57,35 @@ export default function CompanyInfo(props) {
     <div>
       <Title />
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <label>
         <StyledInput
           type="text"
-          placeholder="name"
+          placeholder="Company name"
           name="name"
           ref={register({ required: true })}
-        />
+        /></label>
         {errors.name && "name is required"}
+        <label>
         <StyledInput
           type="text"
-          placeholder="location"
+          placeholder="Location"
           name="location"
           ref={register({ required: true })}
-        />
+        /></label>
         {errors.location && "location is required"}
+        <label>
         <StyledTextArea
           name="description"
-          placeholder="company description"
+          placeholder="Company description"
           ref={register({ required: true })}
-        />
+        /></label>
         {errors.description && "description is required"}
+        <label>
         <StyledTextArea
           name="mission"
-          placeholder="mission statement"
+          placeholder="Company mission statement"
           ref={register({ required: true })}
-        />
+        /></label>
         {errors.mission && "mission is required"}
         <StyledSubmit type="submit" />
       </StyledForm>

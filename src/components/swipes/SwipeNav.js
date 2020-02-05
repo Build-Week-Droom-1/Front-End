@@ -6,6 +6,8 @@ import Check from '../../images/check128.png';
 const StyledImg = styled.img`
     height: 75px;
     width: auto;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 50%;
 `;
 
 const StyledNav = styled.nav`
