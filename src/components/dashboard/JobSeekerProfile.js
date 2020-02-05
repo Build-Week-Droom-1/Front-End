@@ -1,6 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import DashboardTitle from './DashboardTitle';
+import JobSeekerNav from './JobSeekerNav';
 
+const Card = styled.div`
+  max-width: 60%;
+  margin: 1% auto;
+  padding: 0;
+  border: 1px solid #caa767;
+  border-radius: 5px;
+  background-color: #FFFEF2;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+`
 const ProfileContainer = styled.div`
     width: 80%;
     margin: 0 auto;
@@ -9,7 +20,6 @@ const ProfileContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
 `
-
 const ProfileName = styled.h1`
     margin: 0 0 1rem 0;
     width: 80%;
@@ -41,24 +51,30 @@ const DescriptionDiv = styled.div`
 
 const JobSeekerProfile = () => {
     return (
-        <ProfileContainer>
-            <ProfileName><span>Name Icon</span>{' '}Job Seeker Name Here</ProfileName>
-            <ProfileDetails><span>Location Icon</span>{' '}Location Here</ProfileDetails>
-            <ProfileDetails><span>Occupation Icon</span>{' '}Occupation Here</ProfileDetails>
-            <ProfileDetails><span>Education Icon</span>{' '}Education Here</ProfileDetails>
-            <DescriptionDiv>
-                <h3>Work Experience</h3>
-                <p>Actual Work Experience</p>
-            </DescriptionDiv>
-            <DescriptionDiv>
-                <h3>Skills</h3>
-                <p>Actual Skills</p>
-            </DescriptionDiv>
-            <DescriptionDiv>
-                <h3>Interests</h3>
-                <p>Actual Interests</p>
-            </DescriptionDiv>
-        </ProfileContainer>
+        <>
+            <Card>
+                <DashboardTitle />
+                <ProfileContainer>
+                    <ProfileName><span>Name Icon</span>{' '}Job Seeker Name Here</ProfileName>
+                    <ProfileDetails><span>Location Icon</span>{' '}Location Here</ProfileDetails>
+                    <ProfileDetails><span>Occupation Icon</span>{' '}Occupation Here</ProfileDetails>
+                    <ProfileDetails><span>Education Icon</span>{' '}Education Here</ProfileDetails>
+                    <DescriptionDiv>
+                        <h3>Work Experience</h3>
+                        <p>Actual Work Experience</p>
+                    </DescriptionDiv>
+                    <DescriptionDiv>
+                        <h3>Skills</h3>
+                        <p>Actual Skills</p>
+                    </DescriptionDiv>
+                    <DescriptionDiv>
+                        <h3>Interests</h3>
+                        <p>Actual Interests</p>
+                    </DescriptionDiv>
+                </ProfileContainer>
+                <JobSeekerNav />
+            </Card>
+        </>
     );
 }
 
