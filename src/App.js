@@ -15,6 +15,7 @@ import SeekerMatches from "./components/matches/SeekerMatches";
 import CompanyMatches from "./components/matches/CompanyMatches";
 
 import PostJob from "./components/jobposting/PostJob";
+import JobPosting from "./components/jobposting/JobPosting";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./components/onboarding/privateRoute";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/company-swipe" component={CompanySwipe} />
         <Route path="/seeker-swipe" component={SeekerSwipe} />
         <Route path="/post-job" component={PostJob} />
+        <Route path="/job/:job_id" component={JobPosting} />
       </div>
     </Router>
   );
