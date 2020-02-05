@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Title from "./Title";
 
 const StyledForm = styled.form`
   display: flex;
@@ -53,34 +54,37 @@ export default function CompanyInfo(props) {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput
-        type="text"
-        placeholder="name"
-        name="name"
-        ref={register({ required: true })}
-      />
-      {errors.name && "name is required"}
-      <StyledInput
-        type="text"
-        placeholder="location"
-        name="location"
-        ref={register({ required: true })}
-      />
-      {errors.location && "location is required"}
-      <StyledTextArea
-        name="description"
-        placeholder="company description"
-        ref={register({ required: true })}
-      />
-      {errors.description && "description is required"}
-      <StyledTextArea
-        name="mission"
-        placeholder="mission statement"
-        ref={register({ required: true })}
-      />
-      {errors.mission && "mission is required"}
-      <StyledSubmit type="submit" />
-    </StyledForm>
+    <div>
+      <Title />
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledInput
+          type="text"
+          placeholder="name"
+          name="name"
+          ref={register({ required: true })}
+        />
+        {errors.name && "name is required"}
+        <StyledInput
+          type="text"
+          placeholder="location"
+          name="location"
+          ref={register({ required: true })}
+        />
+        {errors.location && "location is required"}
+        <StyledTextArea
+          name="description"
+          placeholder="company description"
+          ref={register({ required: true })}
+        />
+        {errors.description && "description is required"}
+        <StyledTextArea
+          name="mission"
+          placeholder="mission statement"
+          ref={register({ required: true })}
+        />
+        {errors.mission && "mission is required"}
+        <StyledSubmit type="submit" />
+      </StyledForm>
+    </div>
   );
 }

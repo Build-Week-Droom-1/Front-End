@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Title from "./Title";
 
 const StyledForm = styled.form`
   display: flex;
@@ -60,60 +61,63 @@ export default function JobSeekerInfo(props) {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput
-        type="text"
-        placeholder="name"
-        name="name"
-        ref={register({ required: true })}
-      />
-      {errors.name && "Name is required"}
-      <StyledInput
-        type="text"
-        placeholder="location"
-        name="location"
-        ref={register({ required: true })}
-      />
-      {errors.location && "location is required"}
-      <StyledInput
-        type="text"
-        placeholder="occupation"
-        name="occupation"
-        ref={register({ required: true })}
-      />
-      {errors.occupation && "occupation is required"}
-      <StyledDropDown name="education" ref={register({ required: true })}>
-        <option value="" selected disabled>
-          Highest Education
-        </option>
-        <option value="High-school">High-school</option>
-        <option value=" Associate's"> Associate's</option>
-        <option value=" Bachelor's"> Bachelor's</option>
-        <option value=" Master's"> Master's</option>
-        <option value=" PhD"> PhD</option>
-        <option value=" Other "> Other </option>
-      </StyledDropDown>
-      {errors.education && "education is required"}
-      <StyledTextArea
-        name="workExperience"
-        placeholder="work experience"
-        ref={register({ required: true })}
-      />
-      {errors.workExperience && "work experience is required"}
-      <StyledTextArea
-        name="skills"
-        placeholder="skills"
-        ref={register({ required: true })}
-      />
-      {errors.skills && "skills are required"}
-      <StyledTextArea
-        name="interests"
-        placeholder="interests"
-        ref={register({ required: true })}
-      />
-      {errors.interests && "interests are required"}
+    <div>
+      <Title />
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledInput
+          type="text"
+          placeholder="name"
+          name="name"
+          ref={register({ required: true })}
+        />
+        {errors.name && "Name is required"}
+        <StyledInput
+          type="text"
+          placeholder="location"
+          name="location"
+          ref={register({ required: true })}
+        />
+        {errors.location && "location is required"}
+        <StyledInput
+          type="text"
+          placeholder="occupation"
+          name="occupation"
+          ref={register({ required: true })}
+        />
+        {errors.occupation && "occupation is required"}
+        <StyledDropDown name="education" ref={register({ required: true })}>
+          <option value="" selected disabled>
+            Highest Education
+          </option>
+          <option value="High-school">High-school</option>
+          <option value=" Associate's"> Associate's</option>
+          <option value=" Bachelor's"> Bachelor's</option>
+          <option value=" Master's"> Master's</option>
+          <option value=" PhD"> PhD</option>
+          <option value=" Other "> Other </option>
+        </StyledDropDown>
+        {errors.education && "education is required"}
+        <StyledTextArea
+          name="workExperience"
+          placeholder="work experience"
+          ref={register({ required: true })}
+        />
+        {errors.workExperience && "work experience is required"}
+        <StyledTextArea
+          name="skills"
+          placeholder="skills"
+          ref={register({ required: true })}
+        />
+        {errors.skills && "skills are required"}
+        <StyledTextArea
+          name="interests"
+          placeholder="interests"
+          ref={register({ required: true })}
+        />
+        {errors.interests && "interests are required"}
 
-      <StyledSubmit type="submit" />
-    </StyledForm>
+        <StyledSubmit type="submit" />
+      </StyledForm>
+    </div>
   );
 }
