@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Card = styled.div`
     width: 500px;
     margin: 1% auto;
-    padding: 0;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

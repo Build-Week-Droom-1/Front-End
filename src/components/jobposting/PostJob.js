@@ -11,6 +11,12 @@ const StyledForm = styled.form`
   border-radius: 3px;
 `;
 
+const StyledHeading = styled.h2`
+  color: #caa767;
+  font-size: 20px;
+`;
+
+
 const StyledInput = styled.input`
   width: 500px;
   height: 25px;
@@ -24,13 +30,15 @@ const StyledRadioDiv = styled.div`
   width: 500px;
   color: #caa767;
   margin: 10px 0;
+  font-size: 15px;
 `;
 
-const StyledTextArea = styled.input`
+const StyledTextArea = styled.textarea`
   width: 500px;
   height: 300px;
   margin: 5px 0;
   border-radius: 3px;
+  font-family: 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
 `;
 
 const StyledSubmit = styled.input`
@@ -49,27 +57,33 @@ export default function PostJob() {
   console.log(errors);
 
   return (
+    <div>
+    <StyledHeading>Create New Job</StyledHeading>
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <label>
       <StyledInput
         type="text"
-        placeholder="job title"
+        placeholder="Job title"
         name="jobTitle"
         ref={register({ required: true })}
-      />
+      /></label>
       {errors.jobTitle && "job title is required"}
+      <label>
       <StyledInput
         type="text"
-        placeholder="salary"
+        placeholder="Salary"
         name="salary"
         ref={register}
-      />
+      /></label>
+      <label>
       <StyledInput
         type="text"
-        placeholder="location"
+        placeholder="Location"
         name="location"
         ref={register({ required: true })}
-      />
+      /></label>
       {errors.location && "location is required"}
+
 
       <StyledRadioDiv>
         Is relocation assistance available for this position?
@@ -93,20 +107,22 @@ export default function PostJob() {
         </label>
       </StyledRadioDiv>
       {errors.relocation && "relocation field is required"}
-
+<label>
       <StyledTextArea
         name="description"
-        placeholder="job description"
+        placeholder="Add job description here"
         ref={register({ required: true })}
-      />
+      /></label>
       {errors.description && "description is required"}
+      <label>
       <StyledTextArea
         name="requirements"
-        placeholder="position requirements"
+        placeholder="Add position requirements here"
         ref={register({ required: true })}
-      />
+      /></label>
       {errors.requirements && "position requirements are required"}
-      <StyledSubmit type="submit" />
+      <StyledSubmit type="submit" value="Create Job"/>
     </StyledForm>
+    </div>
   );
 }

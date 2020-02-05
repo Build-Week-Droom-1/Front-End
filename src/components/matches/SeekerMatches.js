@@ -3,7 +3,7 @@ import JobMatch from "./JobMatch";
 import styled from "styled-components";
 
 const CardContainer = styled.div`
-  max-width: 60%;
+  max-width: 50%;
   margin: 1% auto;
   padding: 0;
   display: flex;
