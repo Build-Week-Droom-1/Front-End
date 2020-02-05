@@ -33,7 +33,7 @@ const JobPosting = () => {
   useEffect(() => {
     const id = job_id;
     axios
-      .get(`http://localhost:5000/api/jobs/${id}`)
+      .get(`https://droombw.herokuapp.com/api/jobs/${id}`)
       .then(res => {
         console.log(res);
         setJob(res.data);
