@@ -14,7 +14,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./components/onboarding/privateRoute";
 
 
-
 function App() {
   return (
     <Router>
