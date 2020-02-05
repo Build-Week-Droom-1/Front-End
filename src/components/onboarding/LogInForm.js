@@ -42,7 +42,7 @@ export default function LogInForm(props) {
       .then(response => {
         console.log("logged in", response.data);
         localStorage.setItem("token", response.data.token); //retreiving token from api
-        props.history.push("/job-seeker/profile"); // need to make it go to company if company
+        props.history.push("/jobseeker-profile"); // need to make it go to company if company
       })
       .catch(err => {
         console.log("login error", err);

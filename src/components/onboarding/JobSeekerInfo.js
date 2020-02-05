@@ -55,7 +55,7 @@ export default function JobSeekerInfo(props) {
       .then(res => {
         console.log("success", res);
         localStorage.setItem("token", res.data);
-        props.history.push("/dashboard");
+        props.history.push("/jobseeker-profile");
       })
       .catch(err => console.log("error", err.response));
   };

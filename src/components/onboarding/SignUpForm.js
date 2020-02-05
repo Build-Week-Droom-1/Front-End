@@ -38,7 +38,6 @@ const StyledRadioDiv = styled.div`
   width: 300px;
   color: #caa767;
   margin: 10px 0;
-  font-size: 15px;
 `;
 
 export default function SignUpForm(props) {
@@ -89,7 +88,7 @@ export default function SignUpForm(props) {
 
         <StyledInput
           type="text"
-          placeholder="Username"
+          placeholder="username"
           name="username"
           ref={register({
             required: true
@@ -103,29 +102,19 @@ export default function SignUpForm(props) {
           name="password"
           ref={register({ required: true })}
         />
-      <StyledRadioDiv>
-        <label>
-          <input
-            name="role"
-            type="radio"
-            value="Job Seeker"
-            ref={register({ required: true })}
-          />
-          Job Seeker
-        </label>
-        <label>
-          <input
-            name="role"
-            type="radio"
-            value="Company"
-            ref={register({ required: true })}
-          />
-          Company
-        </label>
-      </StyledRadioDiv>
-      {errors.role && "Choose a role"}
-      <StyledSubmit type="submit" value="Sign Up" />
-    </StyledForm>
+
+        {/* <StyledInput
+        type="password"
+        placeholder="Confirm password"
+        name="password2"
+        ref={register({
+          validate: value => {
+            return value === watch("password");
+          }
+        })}
+      />
+      {errors.password2 && "Passwords must match"} */}
+
         <StyledRadioDiv>
           <label>
             <input
@@ -147,6 +136,7 @@ export default function SignUpForm(props) {
           </label>
         </StyledRadioDiv>
         {errors.role && "Choose a role"}
+
         <StyledSubmit type="submit" value="Sign Up" />
       </StyledForm>
     </div>

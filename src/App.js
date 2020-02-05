@@ -8,11 +8,16 @@ import JobSeekerInfo from "./components/onboarding/JobSeekerInfo";
 import CompanyInfo from "./components/onboarding/CompanyInfo";
 import CompanyDashboard from "./components/dashboard/CompanyDashboard";
 import JobSeekerDashboard from "./components/dashboard/JobSeekerDashboard";
-import PostJob from "./components/onboarding/PostJob";
+import CompanySwipe from "./components/swipes/CompanySwipe";
+import SeekerSwipe from "./components/swipes/SeekerSwipe";
+import SeekerMatches from "./components/matches/SeekerMatches";
+import CompanyMatches from "./components/matches/CompanyMatches";
+
+import PostJob from "./components/jobposting/PostJob";
 import JobPosting from "./components/jobposting/JobPosting";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import PrivateRoute from "./components/onboarding/privateRoute";
-
 
 function App() {
   return (
@@ -25,6 +30,13 @@ function App() {
         <Route path="/login" component={LogInForm} />
         <Route path="/company-profile" component={CompanyDashboard} />
         <Route path="/jobseeker-profile" component={JobSeekerDashboard} />
+
+        <Route path="/company-matches" component={CompanyMatches} />
+        <Route path="/seeker-matches" component={SeekerMatches} />
+        <Route path="/company-swipe" component={CompanySwipe} />
+        <Route path="/seeker-swipe" component={SeekerSwipe} />
+        <Route path="/post-job" component={PostJob} />
+        <Route path="/job/:job_id" component={JobPosting} />
       </div>
     </Router>
   );
