@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-  height: 700px;
+  height: 600px;
   background-color: white;
   color: black;
-  width: 600px;
+  width: 500px;
   margin: 0 auto;
 `;
 
