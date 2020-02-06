@@ -72,7 +72,6 @@ export default function SignUpForm(props) {
         })
         .catch(err => console.log("err", err));
   };
-
   return (
     <div>
       <Title />
@@ -85,7 +84,6 @@ export default function SignUpForm(props) {
           ref={register({ required: true, pattern: /^\S+@\S+$/i })}
         />
         {errors.email && "Email is required"}
-
         <StyledInput
             type="text"
             placeholder="name"
@@ -112,36 +110,18 @@ export default function SignUpForm(props) {
           name="password"
           ref={register({ required: true })}
         />
-
-<<<<<<< HEAD
-=======
         <StyledInput
             type="occupation"
             placeholder="Occupation"
             name="occupation"
             ref={register({ required: false })}
         />
-
         <StyledInput
             type="work_experience"
             placeholder="Work Experience"
             name="work_experience"
             ref={register({ required: false })}
         />
-
-        {/* <StyledInput
-        type="password"
-        placeholder="Confirm password"
-        name="password2"
-        ref={register({
-          validate: value => {
-            return value === watch("password");
-          }
-        })}
-      />
-      {errors.password2 && "Passwords must match"} */}
-
->>>>>>> cleaned up some files, and made changes to the signup form. when signing up. 500 error no longer an issue.
         <StyledRadioDiv>
           <label>
             <input
@@ -163,7 +143,6 @@ export default function SignUpForm(props) {
           </label>
         </StyledRadioDiv>
         {errors.role && "Choose a role"}
-
         <StyledSubmit type="submit" value="Sign Up" />
       </StyledForm>
     </div>
