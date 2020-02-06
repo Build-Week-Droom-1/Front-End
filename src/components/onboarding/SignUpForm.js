@@ -103,18 +103,6 @@ export default function SignUpForm(props) {
           ref={register({ required: true })}
         />
 
-        {/* <StyledInput
-        type="password"
-        placeholder="Confirm password"
-        name="password2"
-        ref={register({
-          validate: value => {
-            return value === watch("password");
-          }
-        })}
-      />
-      {errors.password2 && "Passwords must match"} */}
-
         <StyledRadioDiv>
           <label>
             <input

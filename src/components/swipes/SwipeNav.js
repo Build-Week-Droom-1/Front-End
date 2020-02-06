@@ -20,11 +20,13 @@ const StyledNav = styled.nav`
 // add onclick functions when we have the data flowing, to mark cards as either yes or no
 
 
-const SwipeNav = () => {
+const SwipeNav = ({showNextCard}) => {
+
+
     return (
         <StyledNav>            
-            <StyledImg src={Cross} alt="no" />
-            <StyledImg src={Check} alt="yes" />            
+            <StyledImg src={Cross} alt="no" onClick={showNextCard}/>
+            <StyledImg src={Check} alt="yes" onClick={showNextCard}/>            
         </StyledNav>
     )
 }

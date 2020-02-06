@@ -16,17 +16,18 @@ const StyledDiv = styled.div`
   margin-top: 20px;
 `;
 
-const JobSwipeCard = () => {
+const JobSwipeCard = ({currentCard, cardDeck}) => {
+  
   return (
     <StyledDiv>
-      <h2>Job Title</h2>
-      <h3>Company name in Location</h3>
-      <h3>Relocation assistance?</h3>
-      <h3>Salary</h3>
+      <h2>{cardDeck[currentCard].job_title}</h2>
+      {/* <h3>Company name in Location</h3> <- no api endpoints for this yet*/}
+      {/* <h3>Relocation assistance?</h3> <-no api endpoints for this yet*/}
+      <h3>Salary: {cardDeck[currentCard].salary}</h3>
       <h3>Job Description</h3>
-      <p>Insert description here</p>
-      <h3>Requirements</h3>
-      <p>Insert requirements here</p>
+      <p>{cardDeck[currentCard].job_desc}</p>
+      {/* <h3>Requirements</h3> <- no endpoints for this yet */}
+      {/* <p>Insert requirements here</p> */}
     </StyledDiv>
   );
 };
