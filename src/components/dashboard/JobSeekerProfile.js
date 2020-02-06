@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import DashboardTitle from './DashboardTitle';
 import JobSeekerNav from './JobSeekerNav';
-
 const Card = styled.div`
   max-width: 60%;
   margin: 1% auto;
@@ -43,12 +42,10 @@ const DescriptionDiv = styled.div`
     align-items: flex-start;
     font-size: 1rem;
     color: #182d42;
-
     h3 {
         border-bottom: 1px solid #caa767;
     }
 `
-
 const JobSeekerProfile = () => {
     return (
         <>
@@ -75,7 +72,5 @@ const JobSeekerProfile = () => {
                 <JobSeekerNav />
             </Card>
         </>
-    );
-}
-
+    )};
 export default JobSeekerProfile;
