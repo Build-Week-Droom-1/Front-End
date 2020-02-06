@@ -106,7 +106,7 @@ const CompanyEdit = () => {
             <Card>
                 <DashboardTitle />
                 <ProfileContainer onSubmit={handleSubmit(onSubmit)}>
-                    <ProfileName><span>Name Icon</span>{' '}
+                    <ProfileName><span><i class="fas fa-users"></i></span>{' '}
                         <StyledInput
                             type="text"
                             placeholder="name"
@@ -115,7 +115,7 @@ const CompanyEdit = () => {
                         />
                         {errors.name && "name is required"}
                     </ProfileName>
-                    <ProfileLocation><span>Location Icon</span>{' '}
+                    <ProfileLocation><span><i class="far fa-compass"></i></span>{' '}
                         <StyledInput
                             type="text"
                             placeholder="location"

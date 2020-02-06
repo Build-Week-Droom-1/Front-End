@@ -35,7 +35,7 @@ const JobSeekerNav = () => {
         <StyledNavLink to="/seeker-matches">My Matches</StyledNavLink>
       </NavLinkContainer>
       <NavLinkContainer>
-        <StyledNavLink to="EDIT PROFILE LINK">Edit Profile</StyledNavLink>
+        <StyledNavLink to="/jobseeker-profile/edit">Edit Profile</StyledNavLink>
         <StyledNavLink to="DELETE PROFILE LINK">Delete Profile</StyledNavLink>
       </NavLinkContainer>
     </>

@@ -55,8 +55,8 @@ const CompanyProfile = () => {
             <Card>
                 <DashboardTitle />
                 <ProfileContainer>
-                    <ProfileName><span>Name Icon</span>{' '}Company Name Here</ProfileName>
-                    <ProfileLocation><span>Location Icon</span>{' '}Location Here</ProfileLocation>
+                    <ProfileName><span><i class="fas fa-users"></i></span>{' '}Company Name Here</ProfileName>
+                    <ProfileLocation><span><i class="far fa-compass"></i></span>{' '}Location Here</ProfileLocation>
                     <DescriptionDiv>
                         <h3>Description</h3>
                         <p>Actual Description</p>
