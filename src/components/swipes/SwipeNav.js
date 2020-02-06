@@ -1,34 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-import Cross from '../../images/cross128.png';
-import Check from '../../images/check128.png';
+import React from "react";
+import styled from "styled-components";
+import Cross from "../../images/cross128.png";
+import Check from "../../images/check128.png";
 
-const StyledImg = styled.img`
-    height: 75px;
-    width: auto;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    border-radius: 50%;
+const StyledImg = styled.input`
+  height: 75px;
+  width: auto;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 50%;
 `;
 
 const StyledNav = styled.nav`
-    display: flex;
-    justify-content: space-between;
-    width: 450px;
-    margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 15px auto;
 `;
 
-// add onclick functions when we have the data flowing, to mark cards as either yes or no
-
-
-const SwipeNav = ({showNextCard}) => {
-
-
-    return (
-        <StyledNav>            
-            <StyledImg src={Cross} alt="no" onClick={showNextCard}/>
-            <StyledImg src={Check} alt="yes" onClick={showNextCard}/>            
-        </StyledNav>
-    )
-}
-
+const SwipeNav = ({ showNextCard }) => {
+  return (
+    <StyledNav>
+      <StyledImg type="image" src={Cross} alt="no" onClick={showNextCard} />
+      <StyledImg type="image" src={Check} alt="yes" onClick={showNextCard} />
+    </StyledNav>
+  );
+};
 export default SwipeNav;

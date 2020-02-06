@@ -9,15 +9,14 @@ const StyledDiv = styled.div`
   margin: 0 auto;
   border: 1px solid #caa767;
   border-radius: 5px;
-  background-color: #FFFEF2;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: #fffef2;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   font-size: 15px;
   padding: 5px;
   margin-top: 20px;
 `;
 
-const JobSwipeCard = ({currentCard, cardDeck}) => {
-  
+const JobSwipeCard = ({ currentCard, cardDeck }) => {
   return (
     <StyledDiv>
       <h2>{cardDeck[currentCard].job_title}</h2>
