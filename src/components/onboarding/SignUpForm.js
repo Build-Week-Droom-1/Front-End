@@ -87,6 +87,16 @@ export default function SignUpForm(props) {
         {errors.email && "Email is required"}
 
         <StyledInput
+            type="text"
+            placeholder="name"
+            name="name"
+            ref={register({
+              required: true
+            })}
+        />
+        {errors.username && "Name is required"}
+
+        <StyledInput
           type="text"
           placeholder="username"
           name="username"
@@ -103,6 +113,35 @@ export default function SignUpForm(props) {
           ref={register({ required: true })}
         />
 
+<<<<<<< HEAD
+=======
+        <StyledInput
+            type="occupation"
+            placeholder="Occupation"
+            name="occupation"
+            ref={register({ required: false })}
+        />
+
+        <StyledInput
+            type="work_experience"
+            placeholder="Work Experience"
+            name="work_experience"
+            ref={register({ required: false })}
+        />
+
+        {/* <StyledInput
+        type="password"
+        placeholder="Confirm password"
+        name="password2"
+        ref={register({
+          validate: value => {
+            return value === watch("password");
+          }
+        })}
+      />
+      {errors.password2 && "Passwords must match"} */}
+
+>>>>>>> cleaned up some files, and made changes to the signup form. when signing up. 500 error no longer an issue.
         <StyledRadioDiv>
           <label>
             <input
