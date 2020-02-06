@@ -112,7 +112,7 @@ const JobSeekerEdit = () => {
             <Card>
                 <DashboardTitle />
                 <ProfileContainer onSubmit={handleSubmit(onSubmit)}>
-                    <ProfileName><span>Name Icon</span>{' '}
+                    <ProfileName><span><i class="fas fa-user"></i></span>{' '}
                         <StyledInput
                             type="text"
                             placeholder="name"
@@ -121,7 +121,7 @@ const JobSeekerEdit = () => {
                         />
                         {errors.name && "Name is required"}
                     </ProfileName>
-                    <ProfileDetails><span>Location Icon</span>{' '}
+                    <ProfileDetails><span><i class="far fa-compass"></i></span>{' '}
                         <StyledInput
                             type="text"
                             placeholder="location"
@@ -130,7 +130,7 @@ const JobSeekerEdit = () => {
                         />
                         {errors.location && "location is required"}
                     </ProfileDetails>
-                    <ProfileDetails><span>Occupation Icon</span>{' '}
+                    <ProfileDetails><span><i class="fas fa-briefcase"></i></span>{' '}
                         <StyledInput
                             type="text"
                             placeholder="occupation"
@@ -139,7 +139,7 @@ const JobSeekerEdit = () => {
                         />
                         {errors.occupation && "occupation is required"}
                     </ProfileDetails>
-                    <ProfileDetails><span>Education Icon</span>{' '}
+                    <ProfileDetails><span><i class="fas fa-university"></i></span>{' '}
                         <StyledDropDown name="education" ref={register({ required: true })}>
                             <option value="" selected disabled>
                                 Highest Education

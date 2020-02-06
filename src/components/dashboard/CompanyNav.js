@@ -31,12 +31,12 @@ const CompanyNav = () => {
   return (
     <>
       <NavLinkContainer>
-        <StyledNavLink to="JOB LISTING LINK">Add Job Listing</StyledNavLink>
+        <StyledNavLink to="post-job">Add Job Listing</StyledNavLink>
         <StyledNavLink to="company-swipe">See Applicants</StyledNavLink>
         <StyledNavLink to="company-matches">My Matches</StyledNavLink>
       </NavLinkContainer>
       <NavLinkContainer>
-        <StyledNavLink to="EDIT PROFILE LINK">Edit Profile</StyledNavLink>
+        <StyledNavLink to="company-profile/edit">Edit Profile</StyledNavLink>
         <StyledNavLink to="DELETE PROFILE LINK">Delete Profile</StyledNavLink>
       </NavLinkContainer>
     </>

@@ -55,10 +55,10 @@ const JobSeekerProfile = () => {
             <Card>
                 <DashboardTitle />
                 <ProfileContainer>
-                    <ProfileName><span>Name Icon</span>{' '}Job Seeker Name Here</ProfileName>
-                    <ProfileDetails><span>Location Icon</span>{' '}Location Here</ProfileDetails>
-                    <ProfileDetails><span>Occupation Icon</span>{' '}Occupation Here</ProfileDetails>
-                    <ProfileDetails><span>Education Icon</span>{' '}Education Here</ProfileDetails>
+                    <ProfileName><span><i class="fas fa-user"></i></span>{' '}Job Seeker Name Here</ProfileName>
+                    <ProfileDetails><span><i class="far fa-compass"></i></span>{' '}Location Here</ProfileDetails>
+                    <ProfileDetails><span><i class="fas fa-briefcase"></i></span>{' '}Occupation Here</ProfileDetails>
+                    <ProfileDetails><span><i class="fas fa-university"></i></span>{' '}Education Here</ProfileDetails>
                     <DescriptionDiv>
                         <h3>Work Experience</h3>
                         <p>Actual Work Experience</p>
